@@ -2,8 +2,8 @@
 ## bootstrap folder
 The bootstrap folder is a one-time setup. Its job is to provision the backend resources Terraform needs to store state and enforce locks.
 It spins up the following:
-S3 -> To store the terraform.tfstate file
-DynamoDB Table -> To utilise when locking the state
+- S3 -> To store the terraform.tfstate file
+- DynamoDB Table -> To utilise when locking the state
 
 ## infra folder
 The infra folder houses the sandbox which will be utilised to test the Config-Guardian application.
