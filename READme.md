@@ -1,3 +1,10 @@
+# Running Instructions for sandbox
+1. Bootstrap should run first since it's required for infra (No makefile for bootstrap yet)
+2. Makefile is available to run infra sandbox
+    - Commands will looke like
+        ```bash
+        make init
+        make validate
 # Structure of the repository
 ## bootstrap folder
 The bootstrap folder is a one-time setup. Its job is to provision the backend resources Terraform needs to store state and enforce locks.
@@ -26,6 +33,9 @@ This folder houses the configuration drift generator. The idea is to have apply 
 
 ## completed:
 - Infra (In progress)
+    - S3 storage scenario (Done)
+    - SG network scenario (In progress)
+    - IAM identity scenario (In progress)
 - Bootstrap (Done)
 - Drift Generator (In progress)
     - S3 public apply (Done)
