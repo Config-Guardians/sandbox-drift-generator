@@ -6,16 +6,16 @@ init:
 validate:
 	$(TF) validate
 
-plan: 
-	$(TF) plan -var-file=infra/envs/dev.tfvars
+plan: validate
+	$(TF) plan -var-file=envs/dev.tfvars
 
-apply:
-	$(TF) apply -var-file=infra/envs/dev.tfvars
+apply: validate
+	$(TF) apply -var-file=envs/dev.tfvars
 
 destroy:
-	$(TF) destroy -var-file=infra/envs/dev.tfvars
+	$(TF) destroy -var-file=envs/dev.tfvars
 
 output:
-	$(TF) output -json > infra/outputs.json
+	$(TF) output -json > ../outputs.json
 
 .PHONY: init validate plan apply destroy output # These are not files
