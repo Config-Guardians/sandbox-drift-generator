@@ -26,7 +26,7 @@ This folder houses the configuration drift generator. The idea is to have apply 
 
 ## completed:
 - Infra (In progress)
-- Bootstrap (In progress)
+- Bootstrap (Done)
 - Drift Generator (In progress)
     - S3 public apply (Done)
     - S3 public revert (Done)
