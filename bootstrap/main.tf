@@ -1,13 +1,13 @@
 # Provider Configuration:
 provider "aws" {
     # Profile to use from the AWS credentials file
-    profile = var.aws_profile
-    region  = var.aws_region
+    profile = var.profile
+    region  = var.region
 }
 
 # S3 Bucket Resource for storing remote state:
 resource "aws_s3_bucket" "tf_state" {
-    bucket = ${var.s3_bucket_name}
+    bucket = var.state_bucket_name
 
     tags = {
         Name        = "Terraform State Bucket"
@@ -46,7 +46,7 @@ resource "aws_s3_bucket_public_access_block" "tf_state_public_access" {
 
 # DynamoDB Table Resource:
 resource "aws_dynamodb_table" "tf_lock" {
-    name = var.dynamodb_table_name
+    name = var.lock_table_name
     hash_key = "LockID"
     billing_mode = "PAY_PER_REQUEST"
 
