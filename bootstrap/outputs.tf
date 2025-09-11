@@ -1,4 +1,4 @@
-# Outputs to use for drift generator... and backend config
+# Outputs to use for backend configuration
 output "state_bucket_name" {
   value = aws_s3_bucket.tf_state.id
 }
