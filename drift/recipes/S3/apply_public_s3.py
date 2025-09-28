@@ -9,7 +9,7 @@ from botocore.exceptions import ClientError
 def make_bucket_public(bucket, region, profile):
 
     # Initiate session with boto3 for s3
-    session = boto3.session(profile_name=profile, region_name=region)
+    session = boto3.Session(profile_name=profile, region_name=region)
     s3 = session.client("s3")
 
     # Turn off public access block
@@ -19,10 +19,10 @@ def make_bucket_public(bucket, region, profile):
         "BlockPublicPolicy": False,
         "RestrictPublicBuckets": False,
     }
-    s3.put_public_acess_block(Bucket=bucket, PublicAccessBlockConfiguration=public_access_block)
+    s3.put_public_access_block(Bucket=bucket, PublicAccessBlockConfiguration=public_access_block)
 
-    # Set bucket ACL to public read
-    s3.put_bucket_acl(Bucket=bucket, ACL="public-read")
+    # Set bucket ACL to public read (If ACL is enabled)
+    # s3.put_bucket_acl(Bucket=bucket, ACL="public-read")
 
     # Attach policy to allow access for getObject to public
     policy = {
@@ -51,4 +51,4 @@ if __name__ == "__main__":
     except ClientError as e:
         print(f"Error: {e}")
 
-# Helper command: python apply_s3_public.py my-sandbox-bucket --profile FYP --region ap-southeast-1
+# Helper command: python apply_public_s3.py {INSERT NAME OF BUCKET} --profile FYP --region ap-southeast-1

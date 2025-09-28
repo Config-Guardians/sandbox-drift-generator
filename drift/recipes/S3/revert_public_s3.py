@@ -3,13 +3,13 @@
 # Imports
 import argparse
 import boto3
-from boto3.exceptions import ClientError
+from botocore.exceptions import ClientError
 
 # Function to make bucket private
 def make_bucket_private(bucket, region, profile):
 
     # Initiate session with boto3 for s3
-    session = boto3.session(profile_name=profile, region_name=region)
+    session = boto3.Session(profile_name=profile, region_name=region)
     s3 = session.client("s3")
 
     # Restore public access block
@@ -21,8 +21,8 @@ def make_bucket_private(bucket, region, profile):
     }
     s3.put_public_access_block(Bucket=bucket, PublicAccessBlockConfiguration=public_access_block)
 
-    # Set bucket ACL to private
-    s3.put_bucket_acl(Bucket=bucket, ACL="private")
+    # Set bucket ACL to private (If ACL is enabled)
+    # s3.put_bucket_acl(Bucket=bucket, ACL="private")
 
     # Remove bucket policies
     try:
@@ -46,4 +46,4 @@ if __name__ == "__main__":
     except ClientError as e:
         print(f"Error: {e}")
 
-# Helper command: python rever_s3_public.py my-sandbox-bucket --profile FYP --region ap-southeast-1
+# Helper command: python revert_public_s3.py {INSERT NAME OF BUCKET} --profile FYP --region ap-southeast-1
