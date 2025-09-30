@@ -36,3 +36,20 @@ resource "aws_s3_bucket_public_access_block" "test" {
     ignore_public_acls      = true
     restrict_public_buckets = true
 }
+
+resource "aws_s3_bucket_policy" "allow_unencrypted_put" {
+  bucket = aws_s3_bucket.test.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid      = "AllowUnencryptedUploads"
+        Effect   = "Allow"
+        Principal = "*"
+        Action   = "s3:PutObject"
+        Resource = "${aws_s3_bucket.test.arn}/*"
+        # Notice: no Condition requiring s3:x-amz-server-side-encryption
+      }
+    ]
+  })
+}
