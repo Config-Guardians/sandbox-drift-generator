@@ -6,3 +6,9 @@ module "storage" {
     tags           = local.common_tags
     test_force_destroy = true
 }
+
+module "identity" {
+    source         = "./modules/identity"
+    project_prefix = var.project_prefix
+    tags           = local.common_tags
+}
