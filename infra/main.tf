@@ -12,3 +12,9 @@ module "identity" {
     project_prefix = var.project_prefix
     tags           = local.common_tags
 }
+
+module "network" {
+    source         = "./modules/network"
+    project_prefix = var.project_prefix
+    tags           = local.common_tags
+}
