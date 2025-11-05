@@ -2,5 +2,5 @@
 output "test_bucket_name" { value = module.storage.test_bucket_name }
 output "test_bucket_arn"  { value = module.storage.test_bucket_arn }
 output "sandbox_user_name" { value = module.identity.sandbox_user_name }
-output "sandbox_security_group_id" { value = module.network.sandbox_security_group_id }
-output "sandbox_security_group_name" { value = module.network.sandbox_security_group_name }
+output "sandbox_sg_id" { value = module.network.sandbox_sg_id }
+output "sandbox_sg_name" { value = module.network.sandbox_sg_name }
