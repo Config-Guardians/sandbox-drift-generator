@@ -5,6 +5,11 @@ resource "aws_iam_user" "sandbox_user" {
     tags = var.tags
 }
 
+# Primary key
+resource "aws_iam_access_key" "sandbox_primary_key" {
+  user = aws_iam_user.sandbox_user.name
+}
+
 # Least privilege policy allowing only access to S3 bucket created in the sandbox
 resource "aws_iam_user_policy" "sandbox_user_policy" {
     name = "${var.project_prefix}-s3-access-policy"
