@@ -38,4 +38,4 @@ if __name__ == "__main__":
         print(f"Error: {e}")
 
 # Helper command:
-# python apply_weaken_password_policy.py --profile FYP --region ap-southeast-1
+# python apply_wildcard_IAM.py --profile FYP --region ap-southeast-1

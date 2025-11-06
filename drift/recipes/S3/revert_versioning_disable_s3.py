@@ -35,4 +35,4 @@ if __name__ == "__main__":
         print(f"Error: {e}")
 
 # Helper command:
-# python revert_versioning.py {INSERT NAME OF BUCKET} --profile FYP --region ap-southeast-1
+# python revert_versioning_disable_s3.py {INSERT NAME OF BUCKET} --profile FYP --region ap-southeast-1

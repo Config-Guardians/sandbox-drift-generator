@@ -39,4 +39,4 @@ if __name__ == "__main__":
         print(f"Error: {e}")
 
 # Helper command:
-# python apply_create_stale_access_key.py {IAM USERNAME} --profile FYP --region ap-southeast-1
+# python apply_stale_access_key_IAM.py {IAM USERNAME} --profile FYP --region ap-southeast-1

@@ -36,4 +36,4 @@ if __name__ == "__main__":
         print(f"Error: {e}")
 
 # Helper command:
-# python revert_wildcard_iam_policy.py {IAM USERNAME} --profile FYP --region ap-southeast-1
+# python revert_wildcard_IAM.py {IAM USERNAME} --profile FYP --region ap-southeast-1

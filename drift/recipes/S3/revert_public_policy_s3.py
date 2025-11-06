@@ -34,4 +34,4 @@ if __name__ == "__main__":
         print(f"Error: {e}")
 
 # Helper command:
-# python revert_bucket_policy.py {INSERT NAME OF BUCKET} --profile FYP --region ap-southeast-1
+# python revert_public_policy_s3.py {INSERT NAME OF BUCKET} --profile FYP --region ap-southeast-1
