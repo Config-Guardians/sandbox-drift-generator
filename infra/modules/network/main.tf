@@ -9,13 +9,13 @@ resource "aws_security_group" "sandbox_sg" {
     name = "${var.project_prefix}-sandbox-sg"
     vpc_id = coalesce(var.vpc_id, data.aws_vpc.default.id)
 
-    # Outbound: allow all by default
+    # Outbound: restrict only to internal VPC
     egress {
-        description = "Allow all traffic outbound by default"
+        description = "Allow only VPC-internal traffic"
         from_port   = 0
         to_port     = 0
         protocol    = "-1"
-        cidr_blocks = ["0.0.0.0/0"]
+        cidr_blocks = [data.aws_vpc.default.cidr_block]
     }
 
     # Ingress: deny all by default
