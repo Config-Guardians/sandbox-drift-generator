@@ -16,6 +16,6 @@ destroy:
 	$(TF) destroy -var-file=envs/dev.tfvars
 
 output:
-	$(TF) output -json > ../outputs.json
+	$(TF) output -json > ./outputs.json
 
 .PHONY: init validate plan apply destroy output # These are not files
