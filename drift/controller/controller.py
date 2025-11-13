@@ -1,7 +1,7 @@
-from tf_parser import parse_tf_output
-from recipe_runner import run_recipe
-from registry import get_recipe, list_services
-from utils import info, error
+from .tf_parser import parse_tf_output
+from .recipe_runner import run_recipe
+from .registry import get_recipe, list_services
+from .utils import info, error
 
 class DriftController:
     def __init__(self, tf_output_path: str, profile: str, region: str):
