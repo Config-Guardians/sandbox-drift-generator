@@ -29,10 +29,10 @@ def show_main_menu(controller: DriftController):
         "[2] Apply IAM Drift      [5] Revert IAM Drift\n"
         "[3] Apply SG Drift       [6] Revert SG Drift\n"
         "──────────────────────────────────────────────\n"
-        "\\[r] Reload TF Output   \\[q] Quit\n"  # escape brackets so they render literally
+        "\\[r] Reload TF Output   \\[q] Quit\n"
         "──────────────────────────────────────────────"
     )
-    console.print(Panel.fit(body, title="[bold cyan]Main Menu[/bold cyan]"), markup=True)
+    console.print(Panel.fit(body, title="[bold cyan]Drift Generator Menu[/bold cyan]"), markup=True)
 
 
 def select_and_run(controller: DriftController, service: str, action: str):
