@@ -2,6 +2,7 @@ from rich.prompt import IntPrompt
 from rich.console import Console
 from rich.panel import Panel
 from controller.controller import DriftController
+from controller.stress import run_stress_test
 from controller.utils import info
 from pathlib import Path
 
@@ -29,6 +30,7 @@ def show_main_menu(controller: DriftController):
         "[2] Apply IAM Drift      [5] Revert IAM Drift\n"
         "[3] Apply SG Drift       [6] Revert SG Drift\n"
         "──────────────────────────────────────────────\n"
+        "\\[s] Stress Test "
         "\\[r] Reload TF Output   \\[q] Quit\n"
         "──────────────────────────────────────────────"
     )
@@ -105,6 +107,9 @@ def main():
             select_and_run(controller, "iam", "revert")
         elif choice == "6":
             select_and_run(controller, "sg", "revert")
+        elif choice == "s":
+            run_stress_test(controller)
+
 
     console.clear()
     console.print("[bold red]Exiting Configuration Guardian Drift Console.[/bold red]")
