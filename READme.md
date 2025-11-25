@@ -5,6 +5,20 @@
         ```bash
         make init
         make validate
+
+# Running Instructions for drift generator
+1. Go into the drift folder of the repository, you should see a main.py file in your working directory
+2. Run the following command
+   ```bash
+   python main.py
+3. This will open up the TUI, from which you can simply follow the instructions to utilize the drift generator to it's full capacity.
+
+# Pre-requisites
+In order to run these commands, you will need to generate an AWS access key and have aws-cli call that profile 'FYP', this key must have full access to the following services:
+1. FullS3Access
+2. FullIAMAccess
+3. FullVPCAccess
+   
 # Structure of the repository
 ## bootstrap folder
 The bootstrap folder is a one-time setup. Its job is to provision the backend resources Terraform needs to store state and enforce locks.
@@ -26,17 +40,15 @@ This folder houses the configuration drift generator. The idea is to have apply 
 ### plan:
 - Have separate folders with a pair of apply and revert scripts to introduce the misconfigurations, and safely revert it back to secure state.
 - Have an interactive CLI (TUI) which would allow us to use a command to run any script
-
-(Optional)
-- Thinking of introducing a chaos feature: Randomly select 2 misconfigurations to run randomly -> Stress testing the Config-Guardian application.
-- Store the state to avoid the infrastructure from turning completely insecure.
+- Have a global controller to manage recipes and introduce stress testing, chaos mode which selects and applies randomly multiple recipes and applies it to the cloud at the same time.
 
 ## completed:
-- Infra (In progress)
+- Infra (Done)
     - S3 storage scenario (Done)
-    - SG network scenario (In progress)
-    - IAM identity scenario (In progress)
+    - SG network scenario (Done)
+    - IAM identity scenario (Done)
 - Bootstrap (Done)
-- Drift Generator (In progress)
-    - S3 public apply (Done)
-    - S3 public revert (Done)
+- Drift Generator (Done)
+    - S3 apply/revert recipes [3] (Done)
+    - IAM apply/revert recipes [3] (Done)
+    - SG apply/revert recipes [2] (Done)
